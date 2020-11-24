@@ -25,6 +25,7 @@ int prime(unsigned int n) {
 int nth_prime(unsigned int a, unsigned int d, unsigned int n) {
 	int x = a;
 	unsigned int cnt = 0;
+	if(a % 2 == 0 && d % 2 == 0)return 0;
 	while (cnt < n) {
 		if (prime(x) == 1) {
 			cnt++;
