@@ -60,7 +60,9 @@ namespace cpp2 {
 				}
 			}
 		}
-		mcxi() : mcxi(){}
+		mcxi operator+(const mcxi& a,const mcxi& b){
+			return a + b;
+		}
 	};
 	int mcxi::to_string() {
 
