@@ -34,7 +34,41 @@ namespace cpp2 {
 			num.value_ = this->value_ + rhs.value_;
 			return num;
 		};
-		std::string to_string()const {
+				std::string to_string()const {
+			std::stringstream ss;
+			int q = value_ / 1000;
+			int r = (value_ - (q * 1000)) / 100;
+			int s = (value_ - (q * 1000 + r * 100)) / 10;
+			int t = value_ - (q * 1000 + r * 100 + s * 10);
+			if (q == 1) {
+				ss << 'm';
+			}
+			else if (q >= 2) {
+				ss << q;
+				ss << 'm';
+			}
+			if (r == 1) {
+				ss << 'c';
+			}
+			else if (r >= 2) {
+				ss << r;
+				ss << 'c';
+			}
+			if (s == 1) {
+				ss << 'x';
+			}
+			else if (s >= 2) {
+				ss << s;
+				ss << 'x';
+			}
+			if (t == 1) {
+				ss << 'i';
+			}
+			else if (t >= 2) {
+				ss << t;
+				ss << 'i';
+			}
+			return ss.str();
 		};
 		mcxi(const std::string& s) : value_(0) {
 			int digit = 0;
